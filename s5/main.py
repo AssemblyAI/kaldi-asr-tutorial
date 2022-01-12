@@ -1,5 +1,5 @@
+import reset_directory
 import subprocess as s
-from subprocess import Popen, PIPE
 import os
 import sys
 import glob
@@ -38,7 +38,6 @@ wav_path = os.getcwd() + "/" + FILE_NAME_WAV
 with open("wav.scp", "w") as f:
     f.write("{0} {1}".format(FILE_NAME, wav_path))
 
-# DO WE NEED THIS?
 #getty_str = "four score and seven years ago our fathers brought forth upon this continent a new nation " \
 #          "conceived in liberty and dedicated to the proposition that all men are created equal"
 #with open("text", "w") as f:
@@ -48,8 +47,8 @@ with open("wav.scp", "w") as f:
 os.chdir(ORIGINAL_DIRECTORY)
 
 # Identify sample rate in the .wav file
-oup = bash_out = s.run("soxi {0}".format(FILE_NAME_WAV), stdout=s.PIPE, text=True, shell=True)
-cleaned_list = oup.stdout.replace(" ","").split('\n')
+bash_out = s.run("soxi {0}".format(FILE_NAME_WAV), stdout=s.PIPE, text=True, shell=True)
+cleaned_list = bash_out.stdout.replace(" ","").split('\n')
 sample_rate = [x for x in cleaned_list if x.startswith('SampleRate:')]
 sample_rate = sample_rate[0].split(":")[1]
 
@@ -72,6 +71,7 @@ lines[line_idx[0]] = line
 final_str = "".join(lines)
 with open("./conf/mfcc_hires.conf", "w") as mfcc:
     mfcc.write(final_str)
+
 
 with open("main_log.txt", "w") as f:
     # Copy wav file into data folder
