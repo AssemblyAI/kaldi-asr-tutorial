@@ -38,11 +38,6 @@ wav_path = os.getcwd() + "/" + FILE_NAME_WAV
 with open("wav.scp", "w") as f:
     f.write("{0} {1}".format(FILE_NAME, wav_path))
 
-#getty_str = "four score and seven years ago our fathers brought forth upon this continent a new nation " \
-#          "conceived in liberty and dedicated to the proposition that all men are created equal"
-#with open("text", "w") as f:
-#    f.write("{0} {1}".format(FILE_NAME, getty_str))
-
 # Return to s5
 os.chdir(ORIGINAL_DIRECTORY)
 
