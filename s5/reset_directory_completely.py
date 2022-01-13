@@ -12,4 +12,10 @@ for file in ["out", "out_rescore", "main_log"]:
 	try:
 		os.remove("{0}.txt".format(file))
 	except:
-		pass	
+		pass
+
+for file in ["chain", "extractor", "lm"]:
+	try:
+		os.remove("0013_librispeech_v1_{0}.tar.gz".format(file))
+	except:
+		pass		
