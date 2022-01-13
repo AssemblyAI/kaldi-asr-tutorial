@@ -113,18 +113,13 @@ with open("main_log.txt", "w") as f:
                      "data/test_hires exp/chain_cleaned/tdnn_1d_sp/decode_test_tgsmall",
                      stdout=f, text=True, shell=True)
 
-    # Enter decode directory
-    os.chdir("./exp/chain_cleaned/tdnn_1d_sp/decode_test_tgsmall")
-    # Unzip
-    bash_out = s.run("gunzip -k lat.1.gz", stdout=f, text=True, shell=True)
-    # Return to root directory
-    os.chdir(ORIGINAL_DIRECTORY)
-
     # GET TRANSCRIPTION
+    gz_location = "exp/chain_cleaned/tdnn_1d_sp/decode_test_tgsmall/lat.1.gz"
+    words_txt_loc = "{0}/exp/chain_cleaned/tdnn_1d_sp/graph_tgsmall/words.txt".format(ORIGINAL_DIRECTORY)
     command = "../../../src/latbin/lattice-best-path " \
-              "ark:'gunzip -c exp/chain_cleaned/tdnn_1d_sp/decode_test_tgsmall/lat.1.gz |' " \
+              "ark:'gunzip -c {0} |' " \
               "'ark,t:| utils/int2sym.pl -f 2- " \
-              "{0}/exp/chain_cleaned/tdnn_1d_sp/graph_tgsmall/words.txt > out.txt'".format(ORIGINAL_DIRECTORY)
+              "{1} > out.txt'".format(gz_location, words_txt_loc)
     bash_out = s.run(command, stdout=f, text=True, shell=True)
 
     # RESCORE
