@@ -1,4 +1,4 @@
-#!/bin/sh (have to run with yes | filename.sh) Make sure in folder u want to install kaldi to
+#!/bin/sh
 
 if test -n "$1"; then
 	cores=$1
