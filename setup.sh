@@ -12,20 +12,9 @@ echo "Upgrading packages"
 yes | sudo apt update
 yes | sudo apt upgrade
 
-echo "Installing required packages"f
+echo "Installing required packages"
 yes | sudo apt install unzip git-all
-(pkgs="wget
-g++
-make
-automake
-autoconf
-sox
-gfortran
-libtool
-subversion
-python2.7
-python3.8
-zlib1g-dev")
+pkgs="wget g++ make automake autoconf sox gfortran libtool subversion python2.7 python3.8 zlib1g-dev"
 yes | sudo apt-get install $pkgs
 
 echo "Installing Kaldi"
