@@ -1,2 +1,2 @@
 # kaldi-asr-tutorial
-Repo for hosting tutorial code associated with the *BLOGNAME* [ADDURL](https://www.assemblyai.com/blog/variational-autoencoders-for-dummies/) by [AssemblyAI](https://www.assemblyai.com/blog)
+Repo for hosting tutorial code associated with the *Kaldi Speech Recognition for Beginners - A Simple Tutorial* blog [ADDURL](https://www.assemblyai.com/blog/kaldi-speech-recognition-for-beginners-a-simple-tutorial/) by [AssemblyAI](https://www.assemblyai.com/blog)
